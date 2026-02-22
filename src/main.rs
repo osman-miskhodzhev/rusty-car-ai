@@ -1,8 +1,11 @@
 use macroquad::prelude::*;
+mod car;
+use car::Car;
 
-#[macroquad::main("BasicShapes")]
+#[macroquad::main("Симулятор")]
 async fn main() {
-    let font = load_ttf_font("assets/Inter_18pt-Bold.ttf").await.unwrap();
+    let font = load_ttf_font("assets/fonts/Inter_18pt-Bold.ttf").await.unwrap();
+    let mut car = Car::new(400.0, 300.0).await;
     loop {
         clear_background(DARKGRAY);
         draw_text_ex(
@@ -16,6 +19,7 @@ async fn main() {
                 ..Default::default()
             },
         );
+        car.draw();
 
         next_frame().await
     }
