@@ -35,4 +35,22 @@ impl Car {
             }
         );
     }
+
+    pub fn update(&mut self, dt:f32) {
+        // Вперед и назад
+        if is_key_down(KeyCode::Up) {
+            self.x = self.x + 10.0;
+        }
+        if is_key_down(KeyCode::Down) {
+            
+        }
+
+        // вправо и влево
+        if is_key_down(KeyCode::Right) {
+            
+        }
+        if is_key_down(KeyCode::Left) {
+            
+        }
+    }
 }
