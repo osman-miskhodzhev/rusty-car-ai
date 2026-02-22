@@ -8,6 +8,8 @@ async fn main() {
     let mut car = Car::new(400.0, 300.0).await;
     loop {
         clear_background(DARKGRAY);
+        let dt = get_frame_time();
+
         draw_text_ex(
             "симулятор",
             20.0,
@@ -19,6 +21,7 @@ async fn main() {
                 ..Default::default()
             },
         );
+        car.update(dt);
         car.draw();
 
         next_frame().await

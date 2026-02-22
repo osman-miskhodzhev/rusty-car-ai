@@ -22,7 +22,25 @@ impl Car {
             texture,
         }
     }
-    
+
+    pub fn update(&mut self, dt:f32) {
+        // Вперед и назад
+        if is_key_down(KeyCode::Up) {
+            self.y -= 10.0;
+        }
+        if is_key_down(KeyCode::Down) {
+            self.y += 10.0;
+        }
+
+        // вправо и влево
+        if is_key_down(KeyCode::Right) {
+            self.x += 10.0;
+        }
+        if is_key_down(KeyCode::Left) {
+            self.x -= 10.0;
+        }
+    }
+
     pub fn draw(&self) {
         draw_texture_ex(
             &self.texture,
@@ -36,21 +54,4 @@ impl Car {
         );
     }
 
-    pub fn update(&mut self, dt:f32) {
-        // Вперед и назад
-        if is_key_down(KeyCode::Up) {
-            self.x = self.x + 10.0;
-        }
-        if is_key_down(KeyCode::Down) {
-            
-        }
-
-        // вправо и влево
-        if is_key_down(KeyCode::Right) {
-            
-        }
-        if is_key_down(KeyCode::Left) {
-            
-        }
-    }
 }
